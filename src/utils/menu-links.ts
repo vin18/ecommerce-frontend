@@ -5,10 +5,10 @@ export interface IMenu {
 }
 
 const MENUS: IMenu[] = [
-  { id: 1, title: "All", path: "" },
-  { id: 2, title: "Fruits", path: "" },
-  { id: 3, title: "Dairy", path: "" },
-  { id: 4, title: "Breakfast", path: "" },
+  { id: 1, title: "All", path: "/search" },
+  { id: 2, title: "Headwear", path: "headwear" },
+  { id: 3, title: "Shirts", path: "/shirts" },
+  { id: 4, title: "Drinkware", path: "/drinkware" },
 ];
 
 export default MENUS;
