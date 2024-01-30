@@ -1,7 +1,9 @@
+import useSWR from "swr";
 import { IProduct } from "@/interfaces/product";
-import products from "@/mockData/products";
 import Image from "next/image";
 import Link from "next/link";
+import Error from "next/error";
+import { fetcher } from "@/utils/fetcher";
 
 function Product({ product }: { product: IProduct }) {
   return (
@@ -30,6 +32,15 @@ function Product({ product }: { product: IProduct }) {
 }
 
 function ProductList() {
+  const { data, isLoading } = useSWR(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/products`,
+    fetcher
+  );
+
+  if (isLoading) return <p>Loading..</p>;
+
+  const { data: products = [] } = data;
+
   return (
     <ul className="grid grid-flow-row gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
       {products.map((product: IProduct) => (
