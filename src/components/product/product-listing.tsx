@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Error from "next/error";
 import { fetcher } from "@/utils/fetcher";
+import ProductListingLoader from "./product-listing-loader";
 
 function Product({ product }: { product: IProduct }) {
   return (
@@ -37,7 +38,15 @@ function ProductList() {
     fetcher
   );
 
-  if (isLoading) return <p>Loading..</p>;
+  if (isLoading) {
+    return (
+      <div className="grid grid-flow-row gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+        {[1, 2, 3, 4, 5, 6].map(() => (
+          <ProductListingLoader />
+        ))}
+      </div>
+    );
+  }
 
   const { data: products = [] } = data;
 
