@@ -5,8 +5,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        // hostname: "demo.vercel.store",
-        hostname: "images.meesho.com",
+        hostname: "demo.vercel.store",
       },
     ],
   },
